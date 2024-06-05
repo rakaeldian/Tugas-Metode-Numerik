@@ -1,1 +1,4 @@
 # Tugas-Metode-Numerik
+Proyek ini melibatkan implementasi solusi untuk sistem persamaan linear menggunakan tiga metode berbeda: metode matriks invers, metode dekomposisi LU Gauss, dan metode dekomposisi Crout. Setiap metode diimplementasikan dalam bahasa pemrograman Python.
+
+Metode matriks invers menyelesaikan sistem persamaan linear dengan menggunakan invers matriks. Metode dekomposisi LU Gauss memecah matriks koefisien menjadi matriks segitiga bawah (L) dan matriks segitiga atas (U), kemudian menyelesaikan sistem dengan substitusi maju dan mundur. Metode dekomposisi Crout juga memecah matriks koefisien menjadi matriks segitiga bawah (L) dan matriks segitiga atas (U), namun menggunakan algoritma yang berbeda. Selain itu, terdapat kode uji yang mengevaluasi keakuratan solusi dari setiap metode. Pengujian dilakukan dengan membandingkan solusi yang diperoleh dengan solusi yang diharapkan untuk sistem persamaan linear yang diberikan.
