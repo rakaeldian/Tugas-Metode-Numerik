@@ -1,0 +1,31 @@
+import numpy as np
+
+def LU_decomposition_Crout(A):
+    n = len(A)
+    L = np.zeros((n, n))
+    U = np.zeros((n, n))
+
+    for k in range(n):
+        L[k][k] = 1
+        for j in range(k, n):
+            U[k][j] = A[k][j] - sum(L[k][p] * U[p][j] for p in range(k))
+        for i in range(k+1, n):
+            L[i][k] = (A[i][k] - sum(L[i][p] * U[p][k] for p in range(k))) / U[k][k]
+
+    return L, U
+
+def solve_linear_system_Crout(A, b):
+    L, U = LU_decomposition_Crout(A)
+    n = len(A)
+    y = np.zeros(n)
+    x = np.zeros(n)
+
+    # Solve Ly = b
+    for i in range(n):
+        y[i] = b[i] - sum(L[i][j] * y[j] for j in range(i))
+
+    # Solve Ux = y
+    for i in range(n-1, -1, -1):
+        x[i] = (y[i] - sum(U[i][j] * x[j] for j in range(i+1, n))) / U[i][i]
+
+    return x
